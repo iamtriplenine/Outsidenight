@@ -1,27 +1,188 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outside Night</title>
-    <link rel="stylesheet" href="style.css">
+
+
+
+<!-- Favicon classique (pour navigateur) -->
+<link rel="icon" href="https://i.postimg.cc/rpdpZJyx/IMG-9469.jpg" type="image/png">
+
+<!-- Pour iOS / Android (optionnel) -->
+
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mafia Saturday</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    background:#000;
+    font-family:'Segoe UI',Arial,sans-serif;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* ===== HERO ===== */
+.hero-container{
+    position:relative;
+    max-width:950px;
+    margin:40px auto;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,0.9);
+}
+
+.hero-image{
+    width:100%;
+    display:block;
+    filter:brightness(0.65);
+}
+
+/* ===== STROBE FLASH ===== */
+.hero-container::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(255,255,255,0.08);
+    animation:flash 6s infinite;
+    pointer-events:none;
+}
+
+@keyframes flash{
+    0%,92%,100%{opacity:0}
+    93%{opacity:.4}
+    94%{opacity:0}
+    96%{opacity:.2}
+}
+
+/* ===== SMOKE ===== */
+.smoke{
+    position:absolute;
+    inset:0;
+    background:url("https://i.postimg.cc/rpdpZJyx/IMG_9469.jpg");
+    opacity:.25;
+    animation:smokeMove 60s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes smokeMove{
+    from{background-position:0 0}
+    to{background-position:10000px 0}
+}
+
+/* ===== OVERLAY ===== */
+.overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,.9),rgba(0,0,0,.2));
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:center;
+    padding-bottom:50px;
+}
+
+/* ===== TITLE ===== */
+.title-mafia{
+    font-size:56px;
+    letter-spacing:6px;
+    font-weight:900;
+    text-transform:uppercase;
+    margin-bottom:25px;
+    text-shadow:
+        0 0 10px #ff4f8b,
+        0 0 30px #e91e63,
+        0 0 70px #e91e63;
+    animation:fadeUp 1.5s ease, neon 2.5s infinite alternate;
+}
+
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(40px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes neon{
+    from{
+        text-shadow:
+            0 0 8px #ff4f8b,
+            0 0 20px #e91e63;
+    }
+    to{
+        text-shadow:
+            0 0 15px #ff79a8,
+            0 0 40px #ff2f7a,
+            0 0 90px #ff2f7a;
+    }
+}
+
+/* ===== BUTTON ===== */
+.btn-integrer{
+    background:linear-gradient(135deg,#e91e63,#ff4f8b);
+    color:#fff;
+    padding:18px 44px;
+    border-radius:60px;
+    text-decoration:none;
+    font-size:19px;
+    font-weight:bold;
+    box-shadow:0 15px 40px rgba(233,30,99,.7);
+    transition:.3s;
+}
+
+.btn-integrer:hover{
+    transform:scale(1.12);
+    box-shadow:0 25px 60px rgba(255,79,139,.9);
+}
+
+/* ===== INFO ===== */
+.text-section{
+    text-align:center;
+    margin:30px auto 60px;
+}
+
+.phone{
+    font-size:21px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:600px){
+    .title-mafia{font-size:34px;letter-spacing:3px}
+    .btn-integrer{font-size:16px;padding:14px 32px}
+}
+</style>
 </head>
+
 <body>
 
-    <div class="hero-container">
-        <img src="https://i.postimg.cc/m23cc5pb/outside-nighg.png" alt="Affiche Outside Night" class="hero-image">
+<!-- 🎵 MUSIC AUTO -->
+<audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
 
-        <a href="https://chat.whatsapp.com/GyWuosvLbpjGZfCxXNwYMw?mode=hqrc" class="btn-buy">Acheter</a>
+<div class="hero-container">
+    <img src="https://i.postimg.cc/rpdpZJyx/IMG-9469.jpg" class="hero-image">
+
+    <div class="smoke"></div>
+
+    <div class="overlay">
+        <h1 class="title-mafia">MAFIA SATURDAY</h1>
+        <a href="https://chat.whatsapp.com/GyWuosvLbpjGZfCxXNwYMw" class="btn-integrer">
+            Intégrer
+        </a>
     </div>
+</div>
 
-    <section class="text-section">
-        <h1>Outside Night</h1>
-        <p>
-            Stand disponible, piscine, pop corn illimité…  
-            Venez découvrir une nouvelle expérience sous un ciel étoilé.  
-            Réservations au : <strong>+225 0500090411</strong>
-        </p>
-    </section>
+<div class="text-section">
+    <div class="phone">Réservations <br> +225 0500090411 <br> +225 0504771284<br>+2250501229624</div>
+
+
+
+</div>
 
 </body>
 </html>
